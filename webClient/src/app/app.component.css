@@ -1,0 +1,190 @@
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+.header {
+  background: #D5CCC5;
+  color: white;
+  font-size: 30px;
+  height: 65px;
+}
+
+.content {
+	width:100%;
+  height: calc(100% - 72px);
+  float: left;
+}
+
+#headername{
+	padding: 1%;
+}
+
+.maindiv {
+	border: 2px solid;
+}
+
+div#divUserName {
+    width: 40%;
+    height: 100%;
+    background: white;
+    float: left;
+  	overflow-y: scroll;
+	 border: 2px solid;
+}
+
+div#divUserHobbies {
+    height: 100%;
+    background: white;
+	  overflow: auto;
+    border: 2px solid;
+    overflow-y: scroll;
+    max-height:338px !important;
+}
+
+.fields{
+  height : 30px;
+  width: 100%
+}
+
+table{
+	border-style: solid;
+	border-width: 1px 0px 0px 0px;
+	border-color: black;
+  width:100%;
+}
+
+ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  max-height: 300px;
+}
+
+ul li {
+	padding: 5px;
+	cursor : pointer;
+	border-style: solid;
+	border-width: 0.5px 0px 0px 0px;
+	border-color: gray;
+}
+
+ul li:hover {
+    background:gray;
+}
+
+.tdWidth{
+  width: 100%;
+}
+.passionLevel{
+ width:25%;
+ text-align: center
+}
+.year{
+  width:25%;
+  text-align: center
+ }
+ .passionName{
+  width:45%;
+  text-align: center
+ }
+ .paddingTbUserDetails{
+   padding-top: 2px;
+ }
+.userSearch {
+  width: 100%;
+  float: left;
+}
+.userField {
+  width: 85%;
+  float: left;
+  height: 34px;
+  border: solid #000;
+  border-width: 0px 2px 2px 0px;
+}
+.userField .fields, .hobbiesFieldLft .fields {
+  border: 0px;
+  border-radius: 0px;
+  padding: 5px;
+  height: 32px;
+}
+.searchBtn {
+  width: 15%;
+  float: left;
+  border: solid #000;
+  border-width: 0px 2px 2px 0px;
+}
+.searchBtn #addUser, .hobbiesFieldBtn .btn {
+  width: 100%;
+  border: 0px;
+  border-radius: 0px;
+  height: 32px;
+}
+#ulUserList {
+  float: left;
+}
+
+#ulUserList li {
+
+}
+.list-group-item {
+  border: solid #000 !important;
+  border-width: 0px 0px 2px 0px !important;
+  margin-bottom: 0px !important;
+  padding: 8px !important;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  z-index: 2;
+  color: #000;
+  background-color: transparent;
+  border-color: #337ab7 !important;
+  border-width: 2px !important;
+
+}
+.list-group-item:first-child, .list-group-item:last-child {
+  border-radius: 0px;
+}
+.list-group-item:last-child {
+  border-bottom-width: 0px !important;
+}
+.hobbiesFields {
+  width: 100%;
+  float: left;
+}
+.hobbiesFieldLft {
+  width: 85%;
+  float: left;
+  border: solid #000;
+  border-width: 0px 2px 2px 0px;
+  height: 34px;
+}
+.hobbiesFieldBtn {
+  width: 15%;
+  float: left;
+  border: solid #000;
+  border-width: 0px 2px 2px 0px;
+}
+.hobbiesPassionField {
+  width: 30%;
+  float: left;
+}
+.hobbiesHobbyField {
+  width: 40%;
+  float: left;
+}
+.hobbiesYearField {
+  width: 30%;
+  float: left;
+}
+.hobbiesHobbyField .fields {
+  border-width: 0px 2px 0px 2px !important;
+  border: solid #000;
+}
+#tbUserDetails {
+  margin-bottom: 0px !important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  border-top:2px solid #000 !important;
+}

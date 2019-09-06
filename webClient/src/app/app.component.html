@@ -1,0 +1,170 @@
+<div class="maindiv">
+  <div class="header">
+    <div id="headername">User Hobbies Test</div>
+  </div>
+
+  <div class="content">
+    <div id="divUserName">
+      <div class="userSearch">
+        <div class="userField">
+          <input
+            type="text"
+            id="txtEnterUserName"
+            class="fields"
+            [(ngModel)]="user.name"
+            [value]="user.name"
+            placeholder="Enter User Name..."
+          />
+        </div>
+        <div class="searchBtn">
+          <button
+            type="button"
+            id="addUser"
+            class="btn btn-primary"
+            (click)="addUser()"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+      <ul id="ulUserList">
+        <li
+          *ngFor="let user of users; let i = index"
+          (click)="selectedUser(user, i)"
+          [ngClass]="{ active: selectedIndex == i, 'list-group-item': true }"
+        >
+          <strong>{{ user.name }}</strong>
+        </li>
+      </ul>
+    </div>
+    <div id="divUserHobbies">
+      <div class="hobbiesFields">
+        <div class="hobbiesFieldLft">
+          <div class="hobbiesPassionField">
+            <select
+              [(ngModel)]="hobby.passionLevel"
+              id="passionLevel"
+              name="passionLevel"
+              class="fields"
+            >
+              <option value="null" selected disabled
+                >Select passion level</option
+              >
+              <option
+                *ngFor="let passionLevel of passionLevels"
+                [value]="passionLevel"
+              >
+                {{ passionLevel }}
+              </option>
+            </select>
+          </div>
+          <div class="hobbiesHobbyField">
+            <input
+              type="text"
+              id="txtEnterUserHobby"
+              class="fields"
+              placeholder="Enter User Hobby"
+              [(ngModel)]="hobby.name"
+              maxlength="100"
+              [value]="hobby.name"
+            />
+          </div>
+          <div class="hobbiesYearField">
+            <input
+              type="number"
+              id="txtEnterYear"
+              class="fields"
+              maxlength="4"
+              placeholder="Enter Year"
+              [(ngModel)]="hobby.year"
+              [value]="hobby.year"
+            />
+          </div>
+        </div>
+        <div class="hobbiesFieldBtn">
+          <button
+            [disabled]="selectedUserId == null"
+            type="button"
+            id="addHobby"
+            class="btn btn-primary"
+            (click)="addHobby()"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+
+      <table
+        id="tbUserDetails"
+        *ngIf="hobbies.length"
+        class="paddingTbUserDetails table"
+      >
+        <tr *ngFor="let hobby of hobbies">
+          <td class="passionLevel">Passion: {{ hobby.passionLevel }}</td>
+          <td class="passionName">
+            <strong>{{ hobby.name }}</strong>
+          </td>
+          <td class="year">Since {{ hobby.year }}</td>
+          <td>
+            <a>
+              <span
+                data-toggle="modal"
+                data-target="#myHobby"
+                class="glyphicon glyphicon-trash"
+                (click)="openRemovePopup(hobby)"
+              ></span>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <div *ngIf="!hobbies.length">
+          <span *ngIf="!selectedUserName"> There is not hobbies available</span>
+
+       <span *ngIf="selectedUserName"> There is not hobbies available for
+        <strong> {{ selectedUserName }}</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myHobby" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Remove hobby</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Are you want to delete this hobby for
+          <strong>{{ selectedUserName }}</strong> ?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="yes"
+          name="yes"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="removeUserHobby()"
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          id="no"
+          name="no"
+          class="btn btn-primary"
+          data-dismiss="modal"
+        >
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
