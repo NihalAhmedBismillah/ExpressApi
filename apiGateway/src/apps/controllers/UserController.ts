@@ -1,6 +1,6 @@
 
 
-import { User, findUserHobbyById, findUsersHobbies, removeUser, updateUser } from './../models/User';
+import { User, findUserById, findUsersHobbies, removeUser, updateUser } from './../models/User';
 import * as  shortid from "shortid";
 import { IUser } from '../interface/user';
 
@@ -31,7 +31,7 @@ export class UserController {
             this.app.get("/api/v1/users/:id", async (req, res) => {
                 try {
                     const { id } = req.params;
-                    const response = await findUserHobbyById(id);
+                    const response = await findUserById(id);
                     res.send(response);
                 } catch (err) {
                     res.send({ status: 'fail', message: err });

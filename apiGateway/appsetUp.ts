@@ -9,6 +9,9 @@ import * as cors from 'cors';
 import * as helmet from 'helmet';
 import * as nocache from 'nocache';
 import * as morgan from 'morgan';
+import  * as  swaggerUi from 'swagger-ui-express';
+  const  swaggerDocument = require('../apiGateway/src/apps/swagger/swagger.json');
+
 
 /**
  * AppSetup
@@ -73,6 +76,8 @@ export class AppSetup {
             await new HobbiesController(this.app).init();
             console.log('controllers registered!')
             this.app.get("/", (req, res) => res.send(`Server running port no: 3001  ${new Date()}`));
+          // Setup swagger for api documentation
+            this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
         }
         catch (error) {
             console.log('error ', JSON.stringify(error))

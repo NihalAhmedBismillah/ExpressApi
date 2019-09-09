@@ -1,7 +1,7 @@
 
 
 import { Hobbies, findHobbies, findHobbiesById, updateHobbies, removeHobbies } from './../models/Hobbies';
-import { User, findUserHobbyById } from '../models/User';
+import { User, findUserById } from '../models/User';
 import * as  shortid from "shortid";
 import { IHobbies } from '../interface/user';
 
@@ -24,7 +24,7 @@ export class HobbiesController {
                      const hobby = { _id: shortid.generate(), passionLevel :passionLevel,name :name,  year: +year};
                     const hobbies = new Hobbies(hobby);
                     await hobbies.save();
-                    const user = await findUserHobbyById(userId);
+                    const user = await findUserById(userId);
                     user.hobbies.push(hobbies._id)
                     await user.save();
                     res.send({ status: 'success' });
